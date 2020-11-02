@@ -20,7 +20,7 @@ class App extends Component {
                             {<Navigation />}
                         </aside>
                         <aside>
-                            {<Page />}
+                            {<Page tasks={this.state.tasks} />}
                         </aside>
                     </main>
                     <footer>

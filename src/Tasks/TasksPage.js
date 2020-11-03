@@ -51,30 +51,24 @@ class TasksPage extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-sm">
-                        To do tasks
+                        <h3>To do tasks</h3>
                         <hr />
                         <div>
-                            <ul className="list-group">
-                                {toDoTasks}
-                            </ul>
+                            {toDoTasks}
                         </div>
                     </div>
                     <div className="col-sm">
-                        In progress tasks
+                        <h3>In progress tasks</h3>
                         <hr />
                         <div>
-                            <ul className="list-group">
-                                {inProgressTasks}
-                            </ul>
+                            {inProgressTasks}
                         </div>
                     </div>
                     <div className="col-sm">
-                        Done tasks
+                        <h3>Done tasks</h3>
                         <hr />
                         <div>
-                            <ul className="list-group">
-                                {doneTasks}
-                            </ul>
+                            {doneTasks}
                         </div>
                     </div>
                 </div>

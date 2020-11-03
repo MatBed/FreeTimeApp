@@ -1,16 +1,17 @@
 import React from 'react';
+import '../Styles/Task.css';
 
 const Task = (props) => {
     return (
-        <>
-            <li className="list-group-item">
-                {props.task.Title}
+        <div className="card myCard">
+            <div className="card-body">
+                <h5 className="card-title">{props.task.Title}</h5>
                 <hr />
-                {props.task.Description}
-                <br />
-                Time: {props.task.Time}
-            </li>
-        </>
+                <p className="card-text">{props.task.Description}</p>
+                <button className="btn btn-outline-danger deleteButton">X</button>
+                <button className="btn btn-outline-dark moveButton">-{'>'}</button>
+            </div>
+        </div>
     );
 }
 

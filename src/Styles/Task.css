@@ -1,0 +1,13 @@
+.myCard {
+  background-color: darkkhaki !important;
+  margin: 15px 15px;
+}
+
+.moveButton {
+  float: right;
+  width: 44px;
+}
+
+.deleteButton {
+  width: 44px;
+}

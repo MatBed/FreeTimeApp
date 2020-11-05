@@ -9,7 +9,7 @@ const Task = (props) => {
                 <hr />
                 <p className="card-text">{props.task.Description}</p>
                 <button className="btn btn-outline-danger deleteButton" onClick={() => props.deleteAction(props.task.id)}>X</button>
-                <button className="btn btn-outline-dark moveButton">-{'>'}</button>
+                {props.task.Status !== 'Done' ? <button className="btn btn-outline-dark moveButton">-{'>'}</button> : ''}
             </div>
         </div>
     );

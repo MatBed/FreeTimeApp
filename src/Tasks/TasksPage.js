@@ -28,7 +28,7 @@ class TasksPage extends Component {
                 Time: 3
             },
             {
-                id: 1,
+                id: 4,
                 Title: 'Work',
                 Description: 'Go to work',
                 Status: 'Done',
@@ -37,14 +37,22 @@ class TasksPage extends Component {
         ]
     }
 
+    deleteHandle = (id) => {
+        let tasks = [...this.state.tasks];
+        tasks = tasks.filter(task => task.id !== id);
+        this.setState({
+            tasks
+        })
+    }
+
     render() {
         const toDo = this.state.tasks.filter(task => task.Status === 'ToDo')
         const inProgress = this.state.tasks.filter(task => task.Status === 'InProgress')
         const done = this.state.tasks.filter(task => task.Status === 'Done')
 
-        const toDoTasks = toDo.map(task => <Task key={task.id} task={task} />)
-        const inProgressTasks = inProgress.map(task => <Task key={task.id} task={task} />)
-        const doneTasks = done.map(task => <Task key={task.id} task={task} />)
+        const toDoTasks = toDo.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} />)
+        const inProgressTasks = inProgress.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} />)
+        const doneTasks = done.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} />)
 
 
         return (

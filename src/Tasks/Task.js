@@ -8,7 +8,7 @@ const Task = (props) => {
                 <h5 className="card-title">{props.task.Title}</h5>
                 <hr />
                 <p className="card-text">{props.task.Description}</p>
-                <button className="btn btn-outline-danger deleteButton">X</button>
+                <button className="btn btn-outline-danger deleteButton" onClick={() => props.deleteAction(props.task.id)}>X</button>
                 <button className="btn btn-outline-dark moveButton">-{'>'}</button>
             </div>
         </div>

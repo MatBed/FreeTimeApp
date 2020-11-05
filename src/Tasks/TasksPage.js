@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Task from './Task';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Table } from 'react-bootstrap';
 
 
 class TasksPage extends Component {
@@ -37,6 +38,24 @@ class TasksPage extends Component {
         ]
     }
 
+    changeStatusHandle = (id) => {
+        let tasks = [...this.state.tasks]
+        tasks.forEach(task => {
+            if (task.id === id) {
+                if (task.Status === 'ToDo') {
+                    task.Status = 'InProgress'
+                }
+                else if (task.Status === 'InProgress') {
+                    task.Status = 'Done'
+                }
+            }
+        })
+
+        this.setState({
+            tasks
+        })
+    }
+
     deleteHandle = (id) => {
         let tasks = [...this.state.tasks];
         tasks = tasks.filter(task => task.id !== id);
@@ -50,9 +69,9 @@ class TasksPage extends Component {
         const inProgress = this.state.tasks.filter(task => task.Status === 'InProgress')
         const done = this.state.tasks.filter(task => task.Status === 'Done')
 
-        const toDoTasks = toDo.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} />)
-        const inProgressTasks = inProgress.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} />)
-        const doneTasks = done.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} />)
+        const toDoTasks = toDo.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} changeStatus={this.changeStatusHandle} />)
+        const inProgressTasks = inProgress.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} changeStatus={this.changeStatusHandle} />)
+        const doneTasks = done.map(task => <Task key={task.id} task={task} deleteAction={this.deleteHandle} changeStatus={this.changeStatusHandle} />)
 
 
         return (
